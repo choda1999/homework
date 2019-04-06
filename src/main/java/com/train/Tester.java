@@ -3,13 +3,37 @@ package com.train;
 import java.util.Scanner;
 
 public class Tester {
+    private static int checked;
+    private static int countNo;
     public static void main(String[] args) {
+        countNo = 1;
+        while(checked != -1){
+            sellTicket();
+            countNo++;
+            System.out.print("Please enter any key to continue or '-1' to stop: ");
+            Scanner scanner = new Scanner(System.in);
+            if (scanner.hasNextInt()) {
+                checked = scanner.nextInt();
+            }
+        }
+        System.out.println("......End of The Ticket System......");
+    }
+
+    private static void sellTicket() {
         Ticket ticket = new Ticket();
-        System.out.print("Please enter number of tickets:");
         Scanner scanner = new Scanner(System.in);
+        System.out.println("#Buyer No: " + countNo);
+        System.out.print("Buyer Name: ");
+        ticket.name = scanner.next();
+        System.out.print("Please enter number of tickets:");
         ticket.total_ticket = scanner.nextInt();
         System.out.print("How many round-trip tickets:");
         ticket.roundTrip_ticket = scanner.nextInt();
+        while(ticket.roundTrip_ticket > ticket.total_ticket){
+            System.out.println("@the round-trip ticket can't be larger than the total ticket@");
+            System.out.print("How many round-trip tickets:");
+            ticket.roundTrip_ticket = scanner.nextInt();
+        }
         System.out.println("Total tickets:" + ticket.total_ticket);
         System.out.println("Round Trip:" + ticket.roundTrip_ticket);
         System.out.println("Total:" + ticket.price());

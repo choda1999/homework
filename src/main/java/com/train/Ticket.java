@@ -4,11 +4,13 @@ package com.train;
 public class Ticket {
     int total_ticket;
     int roundTrip_ticket;
+    String name;
 
-    public Ticket(){
-        this.total_ticket = total_ticket;
-        this.roundTrip_ticket = roundTrip_ticket;
-    }
+//    public Ticket(){
+//        this.total_ticket = total_ticket;
+//        this.roundTrip_ticket = roundTrip_ticket;
+//        this.name = name;
+//    }
 
     public int price(){
         int oneWay_price = 1000;
