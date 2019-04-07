@@ -1,10 +1,11 @@
 package com.train
 
+import javafx.beans.binding.IntegerBinding
 import java.util.*
 
 fun main() {
     var countNo = 1
-    var checked = 1
+//    var checked
     val ticket = TicketKt(0,0,0)
     do{
         val scanner = Scanner(System.`in`)
@@ -12,11 +13,11 @@ fun main() {
         ticket.sell()
 
         print("Please enter any key to continue or '-1' to stop: ")
-        if(scanner.hasNextInt()){
-            checked = scanner.nextInt()
-        }
+//            val checked = scanner.nextLine().toInt()          //NumberFormatException: For input string: ""
+        val checked = scanner.nextLine()
         countNo++
-    }while(checked != -1)
+    }while(checked != "-1")
+//    }while(checked != -1)
     println("End of The Ticket System!")
 }
 
